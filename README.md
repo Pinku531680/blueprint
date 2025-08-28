@@ -38,3 +38,13 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
    Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were features that I worked on for the first time.
 
 
+The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (WebSocket API by Google Chrome and ws package in Node JS). 
+As a result, the programmer needs to care only about minimizing the data to be broadcast, which is not a significant challenge. Understanding web sockets to some depth is always a plus point when dealing with real-time applications.
+
+These videos from YouTube, apart from the official documentation, helped me understand a lot -
+1) https://youtu.be/2Nt-ZrNP22A?si=jrWr-59aOwFyAdAZ by **Hussein Nasser**
+2) https://youtu.be/NvZEZ-mZsuI?si=kYiBT62MBREobMmz by **ByteMonk**
+
+
+
+
