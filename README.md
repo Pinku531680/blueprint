@@ -1,12 +1,27 @@
-# Getting Started with Create React App
+# Blueprint - 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A multi-user real-time online collaboration whiteboard
 
-## Available Scripts
+## Live Demo -
+https://pinku531680.github.io/blueprint/
 
-In the project directory, you can run:
+Note - The backend is deployed on Render free-tier, so it might take a few seconds to join the room if the server is asleep because of inactivity.
 
-### `npm start`
+
+### Features and implementation overview
+
+1) **Entirely from scratch -**  Each and every functionality has been implemented from scratch without using any third-party whiteboard libraries.
+2) **Collaborative Mode -** Up to 5 users can join the room and interact with the shared whiteboard with features including free-hand drawing,
+   adding and formatting text, erasing, with all changes are broadcast to connected clients in real-time using web sockets.
+3) **Custom Concurrency control system for board -** Inspired by database locking mechanisms, I developed my custom concurrency control system for
+   the shared whiteboard so that there are no data conflicts, and no user is out of sync.
+4) **Collaborative Transparency -** The board lock mechanism provides temporary, exclusive access to one user at a time. Additionally, there are properly developed indicators
+   showing which user has the lock/control and for what purpose.
+5) **Custom State Management -** Implemented custom state management that allows multiple-page support and a robust undo-redo functionality independently across all pages.
+6) **Role-based Administrative Controls -** This feature allows role-based administrative controls for session moderation like removing users, clearing shared canvas, and
+   disabling the user (after which the disabled user can also request the admin to enable them, the admin gets a dialog where he decides either to accept or reject that request).
+   
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
