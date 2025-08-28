@@ -5,7 +5,7 @@ A multi-user real-time online collaboration whiteboard
 ## Live Demo -
 https://pinku531680.github.io/blueprint/
 
-Note - The backend is deployed on **Render** free-tier, so it might take a few seconds to join the room if the server is asleep due to inactivity.
+Note - The backend is deployed on **Render** free-tier, so it might take a few seconds to create the room if the server is asleep due to inactivity.
 
 ## Features and implementation overview
 
