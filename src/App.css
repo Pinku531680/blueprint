@@ -1,38 +1,558 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cookie&family=Merienda:wght@300..900&family=Poppins&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montez&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=The+Girl+Next+Door&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Poiret+One&family=Short+Stack&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: rgb(255, 255, 255);
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.small-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: rgb(43, 43, 43);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  position: relative;
+  height: 100vh;
+}
+
+.container .title {
+  display: flex;
+  align-items: center;  /* flex-start */
+  justify-content: space-between; /* flex-start */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 20px;
+  margin-bottom: 25px;
+  height: 60px;
+}
+
+.title p {
+  font-family: "Montez", cursive;
+  font-size: 38px;
+  color: rgb(78, 162, 246);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.title .collaborate-button, .title .leave-room-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+  border: none;
+  gap: 10px;
+  background: rgb(78, 162, 246);
+  height: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 0px 7px;
+}
+
+.title .leave-room-button {
+  background: rgb(247, 67, 67);
+}
+
+.title .collaborate-button p, .title .leave-room-button p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  height: 100%;
+}
+
+.title .collaborate-button span, .title .leave-room-button span {
+  font-size: 27px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /*margin-right: 20px */
+}
+
+.title {
+  border-bottom: 2px solid rgb(78, 162, 246);
+}
+
+
+
+/* Styles for room info section */
+.container .room-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(90% - 20px);
+  margin-top: -15px;
+}
+
+.container .room-info .in-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.in-control p {
+  font-family: "Poppins", sans-serif;
+  color: rgb(49, 49, 49);
+}
+
+.in-control span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(78, 162, 246, 0.2);
+  background: transparent;
+  color: rgb(78, 162, 246);
+  font-family: "Short Stack", sans-serif;
+  padding: 0px 1px;
+  height: 35px;
+  font-size: 17px;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 0px;
+}
+
+.container .room-info .participants-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.participants-button button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  padding: 0px 7px;
+  outline: none;
+  border: none;
+  background: rgb(78, 162, 246);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.participants-button button:active {
+  box-shadow: none;
+  filter: brightness(105%);
+}
+
+.participants-button #copy-room-id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 35px;
+  padding: 0px 7px;
+  outline: none;
+  border: none;
+  color: rgb(78, 162, 246);
+  background: rgba(78, 162, 246, 0.25);
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 0px 1px 1px 0px rgba(30, 30, 30, 0.2);
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+#copy-room-id span {
+  font-size: 18px;
+}
+
+
+/* Styles for actual board and stuff */
+
+.container .top {
+  width: calc(90% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:transparent;
+  height: 48px;
+  background: rgb(78, 162, 246);
+  border-radius: 7px;
+}
+
+.container .bottom {
+  position: relative;
+  width: calc(90% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid transparent;
+  background:transparent;
+  /* height: 535px; */
+  flex: 1;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  max-height: none;
+}
+
+
+/* Media queries for height and width */
+
+@media (min-height: 800px) {
+  .container {
+    max-height: 900px;
+  }
+  .container .title {
+    margin-bottom: 40px
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (min-width: 1280px) {
+  .container .top {
+    width: calc(0.9 * 1280px - 40px)
+  }
+
+  .container .bottom {
+    width: calc(0.9 * 1280px - 40px)
+  }
+
+  .container .room-info {
+    width: calc(0.9 * 1280px - 40px)
+  }
+}
+
+@media (max-width: 900px) {
+  .container .top {
+    width: 95%
+  }
+
+  .container .bottom {
+    width: 95%;
+  }
+
+  .container .room-info {
+    width: 95%;
+  }
+}
+
+
+.bottom .bottom-left {
+  position: absolute;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: column;
+  /* background: rgb(78, 162, 246, 0.75); */
+  background: white;
+  width: 50px;
+  padding: 0px 0px;
+  border-radius: 5px;
+  /* height: calc(100% - 55px); */
+  height: 490px;
+  top: 50%;
+  left: 35px;
+  transform: translate(-50%, -50%);
+  /* border: 2px solid rgb(78, 162, 246, 0.9); */
+  box-shadow: 0px 1px 2px 1px rgba(45, 45, 45, 0.1);
+}
+
+.bottom-left .tools {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  list-style: none;
+  height: 100%;
+  margin: 4px 0px;
+}
+
+.bottom-left .tools .tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  cursor:pointer;
+  color: rgb(40,40,40);
+}
+
+.bottom-left .tools .tool span {
+  font-size: 25px;
+  color: rgb(46, 46, 46);
+}
+
+.bottom-left .tools .tool:hover {
+  background: rgb(78, 162, 246, 1);
+  transition: 0.2s;
+}
+
+.bottom-left .tools .tool:hover span {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.bottom-left .tools .selected {
+  background: rgb(78, 162, 246, 1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bottom-left .tools .selected span {
+  color: white;
 }
+
+.bottom-left .tools .disabled {
+  color: rgb(46, 46, 46);
+  opacity: 0.75;
+  pointer-events: none;  /* PREVENT BUTTONS FROM BEING CLICKED */
+}
+.bottom-left .tools .disabled span {
+  color: rgb(46, 46, 46);
+  opacity: 0.5;
+}
+.bottom-left .tools .disabled:hover {
+  background: transparent;
+}
+.bottom-left .tools .disabled:hover span {
+  color: rgb(46, 46, 46);
+  opacity: 0.5;
+}
+
+
+
+.bottom {
+  height: 100%;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.bottom canvas {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  background: rgb(240, 240, 240);
+  border: 1px solid rgb(235, 235, 235);
+  /*background: rgb(239, 239, 239);*/
+}
+
+.bottom .pen {
+  /* 2 27, auto */
+  cursor: url("pencil.svg") 3 27, auto;
+}
+.bottom .eraser {
+  cursor: url("eraser.svg") 6 27, auto;
+}
+
+.bottom .text {
+  cursor: crosshair;
+}
+
+/* styles for bottom right done/cancel buttons when adding text */
+
+.bottom .top-right {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 17px;
+  left: calc(100% - 35px);
+  transform: translate(-50%, -50%);
+  height: 36px;
+  width: 72px;
+  border-radius: 1px 5px 1px 5px;
+  overflow: hidden;
+  box-shadow: -1px 1px 2px 0px rgba(90, 90, 90, 0.1);
+}
+
+.top-right button {
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(46, 46, 46);
+}
+
+.top-right #confirm-text, .top-right #cancel-text {
+  color: rgb(46, 46, 46);
+  background: transparent;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.top-right #confirm-text {
+  color: rgb(78, 162, 246);
+  background: rgba(78, 162, 246, 0.25);
+}
+
+.top-right #cancel-text {
+  background: rgba(247, 72, 72, 0.25);
+  color: rgb(247, 72, 72);
+}
+
+.top-right #confirm-text:hover {
+  background: rgb(78, 162, 246);
+  color: rgb(255, 255, 255);
+}
+
+.top-right #cancel-text:hover {
+  background: rgb(247, 72, 72);
+  color: rgb(255,255,255);
+}
+
+
+/* Styles for page indicator and page add section */
+
+.bottom .bottom-right {
+  position: absolute;
+  top: calc(100% - 17px);
+  left: calc(100% - 48px);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  background: rgb(255, 255, 255);
+  width: 96px;
+  border-radius: 5px 1px 1px 1px;
+  /* border: 1px solid rgb(233, 232, 232); */
+  box-shadow: -1px -1px 2px 1px rgba(90, 90, 90, 0.1);
+  overflow: hidden;
+}
+
+.bottom-right .page-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 100%;
+  width: 65%;
+}
+
+.page-indicator p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin-left: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: rgb(49,49,49);
+  width: calc(100% - 20px);
+}
+
+.page-indicator .increment-decrement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  background: transparent;
+  width: 20px;
+}
+
+.increment-decrement button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  height: 50%;
+  outline: none;
+}
+
+.increment-decrement button:disabled {
+  opacity: 0.5;
+}
+
+.increment-decrement span {
+  color: rgb(78, 162, 246);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.bottom-right .add-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 35%;
+  border: none;
+  outline: none;
+  background: rgb(78, 162, 246);
+  cursor: pointer;
+}
+
+.add-page span {
+  color: white;
+}
+
+.bottom-right .add-page:disabled {
+  opacity: 0.6;
+}
+
+.top .select-a-position {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Short Stack", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+
+.top .shape-detection-tool {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Short Stack", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+

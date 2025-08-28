@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cookie&family=Merienda:wght@300..900&family=Poppins&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montez&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+.charts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid skyblue;
+    height: 50px;
+    padding: 0px 20px;
+}
+
+.charts-header span {
+    font-family: "Poppins", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: rgb(49,49,49);
+}
+
+.charts-header button {
+    width: 60px;
+    height: 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: rgb(49,49,49);
+    cursor: pointer;
+}
+
+.charts-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+    margin-top: 30px;
+    height: 200px;
+}
+
+.chart-element {
+    border: 1px solid gray;
+}
+
+.info-section {
+    background: skyblue;
+    margin: 20px 20px 0px 20px;
+    height: 100px;
+}
+
+.canvas-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid gray;
+    margin: 30px 20px 0px 20px;
+    height: 500px;
+    border-radius: 3px;
+}
+
+.canvas-section .canvas-section-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    background: skyblue;
+    height: 40px;
+    width: 100%;
+}
+
+.canvas-section canvas {
+    background: rgb(236, 236, 236);
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.canvas-section-top input {
+    width: 180px;
+    height: 28px;
+    padding: 0px 7px;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    color: rgb(49,49,49);
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+}
+
+.canvas-section-top button {
+    padding: 0px 7px;
+    height: 30px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.canvas-section-top p {
+    color: rgb(49,49,49);
+    font-size: 18px;
+}

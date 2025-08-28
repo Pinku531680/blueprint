@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cookie&family=Merienda:wght@300..900&family=Poppins&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montez&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=The+Girl+Next+Door&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(255, 255, 255);
+}
+
+
+/* Styles for confirmation dialog */
+
+#confirmation-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: rgb(255, 255, 255);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+#confirmation-dialog[open] {
+  opacity: 1;
+}
+
+#confirmation-dialog::backdrop {
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(2px);
+}
+
+#confirmation-dialog p {
+  font-family: "Poppins", sans-serif;
+  color: rgb(49, 49, 49);
+}
+
+#confirmation-dialog p span {
+  color: rgb(78, 162, 246);
+  margin-right: 5px;
+  font-weight: 400;
+}
+
+#confirmation-dialog .confirmation-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  width: 100%;
+}
+
+.confirmation-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  color: rgb(250, 250, 250);
+  padding: 0px 7px;
+  height: 32px;
+  background: rgb(78, 162, 246);
+  border-radius: 3px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0px 1px 1px 0px rgba(20,20,20,0.1);
+  transition: 0.2s;
+}
+
+.confirmation-buttons button:nth-child(1) {
+  background: rgba(78, 162, 246, 0.2);
+  color: rgb(78, 162, 246);
+  font-weight: 400;
+}
+
+.confirmation-buttons button:nth-child(2) {
+  background: rgba(238, 47, 47, 0.2);
+  color: rgb(238, 47, 47);
+  font-weight: 400;
+}
+
+.confirmation-buttons button:active {
+  box-shadow: none;
+  filter: brightness(95%);
+}
+
+
+
+/* Styles for participants modal */
+
+#participants-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: rgb(255, 255, 255);
+  width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+}
+
+#participants-modal[open] {
+  opacity: 1;
+}
+
+#participants-modal::backdrop {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+}
+
+#participants-modal .heading {
+    margin: 0px auto 0px auto;
+    width: 90%;
+}
+
+.heading p {
+    font-family: "Poppins", sans-serif;
+    font-size: 17px;
+    color: rgb(49, 49, 49);
+}
+
+#participants-modal .participants {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 14px;
+    flex-direction: column;
+    width: 90%;
+    margin: 0px auto 0px auto;
+}
+
+.participants div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    width: 100%;
+    height: 48px;
+    border-radius: 5px;
+    background: rgba(78, 162, 246, 0.2);
+    position: relative;
+}
+
+.participants div .admin-indicator {
+  position: absolute;
+  top: 2px;
+  left: 7.2%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  height: 20px;
+  width: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(22, 213, 31);
+  color: white;
+  border-radius: 3px;
+}
+
+.participants div .disabled-indicator {
+  position: absolute;
+  top: 2px;
+  left: 9.3%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  width: 56px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(248, 65, 45);
+  color: white;
+  border-radius: 3px;
+}
+
+.participants div .left-side {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    background: transparent;
+    color: rgb(78, 162, 246);
+    padding: 0px 0px 0px 8px;
+}
+
+.left-side p {
+  width: calc(100% - 10px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+.participants div .right-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 100%;
+    width: 135px;
+    background: transparent;
+}
+
+.right-side span {
+    color: white;
+    height: 34px;
+    width: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 7px;   
+}
+
+.right-side #disable-participant {
+    background: rgb(255, 255, 255);
+    color: rgb(50, 49, 49);
+    transition: 0.2s;
+    opacity: 0.75;
+}
+
+.right-side #disable-participant-disabled {
+  background: rgb(49, 49, 49);
+  color: white;
+  transition: 0.2s;
+}
+
+.right-side #remove-participant {
+    background: rgb(255, 59, 59);
+}
+
+#participants-modal .close-modal {
+  position: absolute;
+  top: calc(0% + 16px);
+  left: calc(100% - 16px);
+  transform: translate(-50%, -50%);
+  background-color: rgb(78, 162, 246);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  width: 33px;
+  height: 32px;
+  border-radius: 1px 5px 1px 5px;
+  cursor: pointer;
+}
+
+#participants-modal .close-modal span {
+  font-size: 22px;
+}
+
+
+
+/* Styles for collaborate modal */
+
+#collaborate-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: rgb(255, 255, 255);
+  width: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  overflow: hidden;
+  outline: none;
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.1);
+  pointer-events: auto;
+}
+
+#collaborate-modal[open] {
+  opacity: 1;
+}
+
+
+#collaborate-modal::backdrop {
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+}
+
+#collaborate-modal .top-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 37px;
+}
+
+#collaborate-modal .top-section #user-name  {
+  width: 100%;
+  height: 100%;
+  height: 38px;
+  padding: 0px 7px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background: rgb(245, 245, 245);
+  color: rgb(49, 49, 49);
+  border-radius: 5px;
+  border: none;
+  transition: 0.2s;
+}
+
+#collaborate-modal .bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid gray; */
+  flex-direction: column;
+  width: calc(80%);
+  gap: 12px;
+  border: 1px solid rgb(78, 162, 246);
+  padding: 10px 7px;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.collaborate-modal .bottom-section p {
+  font-family: "Poppins", sans-serif;
+  color: rgb(136, 136, 136);
+  font-size: 15px;
+  position: relative;
+}
+
+
+#collaborate-modal .bottom-section button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 37px;
+  outline: none;
+  border: none;
+  background: rgb(78, 162, 246);
+  color: rgb(255, 255, 255);
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;  
+  border-radius: 5px;
+  font-weight: 300;
+  cursor: pointer;
+  box-shadow: 0px 1.5px 1px 0px rgba(0,0,0,0.15);
+  transition: 0.1s;
+}
+
+#collaborate-modal .bottom-section button:active {
+  box-shadow: 0px 0px 0px rgba(0,0,0,0.15);
+  filter: brightness(105%);
+}
+
+#collaborate-modal .bottom-section button:disabled {
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+#collaborate-modal .bottom-section .loading-spinner {
+  background: transparent;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  border-top: 3px solid white;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#collaborate-modal .bottom-section #room-id {
+  width: calc(100%);
+  height: 38px;
+  padding: 0px 7px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background: rgb(245, 245, 245);
+  border: none;
+  color: rgb(49, 49, 49);
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+#collaborate-modal .top-section #user-name:focus,
+#collaborate-modal .bottom-section #room-id:focus {
+  background: rgba(78, 162, 246, 0.20);
+}
+
+#collaborate-modal .close-modal {
+  position: absolute;
+  top: calc(0% + 16px);
+  left: calc(100% - 16px);
+  transform: translate(-50%, -50%);
+  background-color: rgb(78, 162, 246);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  width: 33px;
+  height: 32px;
+  border-radius: 1px 5px 1px 5px;
+  cursor: pointer;
+}
+
+#collaborate-modal .close-modal span {
+  font-size: 22px;
+}
+
+#collaborate-modal .collaborate-error {
+  position: absolute;
+  top: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: rgb(247, 67, 67);
+  animation: animate 0.1s;
+}
+
+
+@keyframes animate {
+  0% {
+    transform: translateY(15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+

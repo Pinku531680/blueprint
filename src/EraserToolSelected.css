@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Poiret+One&family=Short+Stack&display=swap');
+
+.eraser-tool {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.eraser-tool p {
+    font-family: "Short Stack", sans-serif;
+    font-size: 16px;
+    color: white;
+}

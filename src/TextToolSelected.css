@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cookie&family=Merienda:wght@300..900&family=Poppins&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montez&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fuzzy+Bubbles:wght@400;700&family=The+Girl+Next+Door&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+
+.text-tool {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+  height: 35px;
+}
+
+.text-tool .text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-tool li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.text-tool li p {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+
+.text-box input {
+    height: 95%;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 7px;
+    font-size: 16px;
+    color: rgb(49,49,49);
+    background: white;
+}
+
+.text-tool .font-size .size-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: white;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0px 2px;
+  width: 50px;
+}
+
+/* .text-tool .font-size .size-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: white;
+  height: 95%;
+  border-radius: 5px;
+  padding: 0px 2px;
+  width: 50px;
+} */
+
+.text-tool .font-size .size-selector .increment-decrement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90%;
+  background: transparent;
+  width: 40%;
+}
+
+.text-tool .font-size .size-selector button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 16px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  height: 50%;
+  outline: none;
+}
+
+.text-tool .font-size .size-selector button:disabled {
+  opacity: 0.5;
+}
+
+.text-tool .font-size .size-selector span {
+  color: rgb(78, 162, 246);
+  font-size: 22px;
+  font-weight: 500;
+}
+
+
+.text-tool .font-size .size-selector .current-size {
+  font-size: 16px;
+  color: rgb(49,49,49);
+  font-family: "Poppins", sans-serif;
+  width: 60%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.text-tool .font-color .color-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background: rgb(255, 255, 255);
+  width: 55px;
+  height: 95%;
+  border-radius: 5px;
+  transition: 0.1s;
+}
+
+.text-tool .font-color .color-selector .active-color {
+  width: 45%;
+  height: 70%;
+  border-radius: 5px;
+  margin-left: auto;
+}
+
+.text-tool .font-color .color-selector button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  outline: none;
+  border: none;
+  height: 100%;
+  width: 40%;
+  margin-left: auto;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.text-tool .font-color .color-selector button span {
+  color: rgb(78, 162, 246);
+  font-size: 26px;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.text-tool .font-color .color-selector button:hover {
+  background: rgb(78, 162, 246, 0.15);
+}
+
+/* when dropdown is opened */
+.text-tool .font-color .color-selector button .opened {
+  transform: rotate(180deg);
+  transition: 0.25s;
+}
+
+
+.text-tool .font-color .color-selector .color-palette-hidden {
+  position: absolute;
+  top: 285%;
+  left: -45%;
+  padding: 7px 10px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 30% 30% 30%;
+  row-gap: 7px;
+  column-gap: 7px;
+  grid-template-columns: 23% 23% 23% 23%;
+  border: 1px solid rgb(250, 250, 250);
+  /*width: 200px;*/
+  background: rgb(255, 255, 255);
+  /* Keeping z-index to zero when the color palette is not open is very very important */
+  z-index: 0;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  opacity: 0;
+}
+
+.text-tool .font-color .color-selector .color-palette {
+  opacity: 1;
+  position: absolute;
+  top: 285%;
+  left: -45%;
+  padding: 7px 10px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-rows: 30% 30% 30%;
+  row-gap: 7px;
+  column-gap: 7px;
+  grid-template-columns: 23% 23% 23% 23%;
+  border: 1px solid rgb(250, 250, 250);
+  background: rgb(255, 255, 255);
+  z-index: 99;
+  border-radius: 5px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  transition: opacity 0.25s ease-in-out;
+}
+
+.text-tool .font-color .color-selector .color-palette .palette-color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+.text-tool .font-color .color-selector .color-palette .palette-color span {
+  color: white;
+  font-size: 24px;
+}
+
+
+/* for font type dropdown */
+
+.text-tool .font {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.text-tool .font .font-selector {
+  position: relative;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 135px;
+  height: 35px;
+  border-radius: 5px;
+  /* overflow: hidden; */
+}
+
+.text-tool .font .font-selector .active-font {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  line-height: 35px;
+  font-family: "Poppins", sans-serif;
+  color: rgb(49,49,49);
+  width: 84%;
+  height: 100%;
+  /* display: flex;
+  align-items: center;
+  justify-content: start; */
+  background: transparent;
+  font-size: 15px;
+  padding: 0px 7px;
+  display: blocks;
+}
+
+.text-tool .font .font-selector button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 16%;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+  transition: 0.2s;
+  /* background: orange; */
+}
+
+.text-tool .font .font-selector button span {
+  color: rgb(78, 162, 246);
+  font-size: 26px;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.text-tool .font .font-selector button .opened {
+  transform: rotate(180deg);
+}
+
+.text-tool .font .font-selector button:hover {
+  background: rgb(78, 162, 246, 0.15);
+}
+
+.text-tool .font .font-menu-hidden {
+  position: absolute;
+  top: calc(100% + 131px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  flex-direction: column;
+  z-index: 0;
+  border-radius: 5px;
+  padding: 5px 0px;
+  gap: 3px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  opacity: 0;
+}
+
+
+.text-tool .font .font-menu {
+  position: absolute;
+  top: calc(100% + 136.5px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  flex-direction: column;
+  z-index: 999;
+  border-radius: 5px;
+  padding: 5px 0px;
+  gap: 5px;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.text-tool .font .font-menu .font-type {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background: rgb(255, 255, 255);
+  /* background: orange; */
+  width: calc(90% - 7px);
+  height: 33px;
+  /* padding: 3px 0px; */
+  border-radius: 5px;
+  cursor: pointer;
+  /* border: 1px solid gray; */
+  overflow: hidden;
+  padding: 0px 0px 0px 7px;
+}
+
+.text-tool .font .font-menu .font-type p {
+  color: rgb(78, 162, 246);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 33px;
+}
+
+.text-tool .font .font-menu .selected-font-type {
+  background: rgb(78, 162, 246);
+}
+
+.text-tool .font .font-menu .selected-font-type p {
+  color: rgb(255, 255, 255);
+}
+
+.text-tool .font .font-menu .font-type:hover, .font .font-menu-hidden .font-type:hover {
+  background: rgba(212, 212, 212, 0.35);
+}
+
+.text-tool .font .font-menu .selected-font-type:hover {
+  background: rgb(78, 162, 246);
+}
+

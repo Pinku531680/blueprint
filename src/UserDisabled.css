@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Poiret+One&family=Short+Stack&display=swap');
+
+.user-disabled {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 12px;
+}
+
+.user-disabled p {
+    font-family: "Short Stack";
+    color: white;
+    font-size: 16px;
+}
+
+.user-disabled button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    background: white;
+    font-family: "Poppins", sans-serif;
+    height: 30px;
+    padding: 0px 7px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: rgb(49, 49, 49);
+    cursor: pointer;
+    box-shadow: 0px 1px 2px 1px rgba(52, 52, 52, 0.1);
+    color: rgb(78, 162, 246);
+    gap: 5px;
+    font-weight: 500;
+}
+
+.user-disabled button p {
+    color: rgb(78, 162, 246);
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+}
+
+.user-disabled button:disabled {
+    opacity: 0.75;
+}
+
+
