@@ -24,6 +24,7 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
 ## Tech Stack
 
 **Frontend:** JavaScript, React, Canvas API
+
 **Backend:** Node.js, Express.js, Web Sockets 
 
 ## Significant Challenges
