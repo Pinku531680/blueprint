@@ -2122,7 +2122,7 @@ function Main() {
     setTimeout(() => {
       // close modal
       closeCollaborateModal();
-    }, 500)
+    }, 100)
   }
 
   const removeTempTextData = () => {
