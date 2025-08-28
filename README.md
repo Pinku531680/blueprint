@@ -1,4 +1,4 @@
-# Blueprint - 
+# Blueprint
 
 A multi-user real-time online collaboration whiteboard
 
