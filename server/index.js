@@ -8,6 +8,8 @@ const process = require("process");
 const User = require("./classes/User");
 const Room = require("./classes/Room");
 
+require("dotenv").config();
+
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({server});
@@ -853,10 +855,10 @@ wss.on("connection", (ws, req) => {
 })
 
 
+const PORT = process.env.PORT || 9000;
 
-
-server.listen(9000, () => {
-    console.log("Server Listening on port: 9000");
+server.listen(PORT, () => {
+    console.log(`Server Listening on port: ${PORT}`);
 })
 
 
