@@ -356,6 +356,8 @@ const disableUser = (userName, roomId) => {
 
 const enableUser = (userName, roomId) => {
 
+    console.log("ENABLE USER CALLED for", userName);
+
     const room = rooms[roomId];
 
     const output = room.enableUser(userName);
