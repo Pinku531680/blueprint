@@ -5,13 +5,13 @@ A multi-user real-time online collaboration whiteboard
 ## Live Demo -
 https://pinku531680.github.io/blueprint/
 
-Note - The backend is deployed on Render free-tier, so it might take a few seconds to join the room if the server is asleep due to inactivity.
+Note - The backend is deployed on **Render** free-tier, so it might take a few seconds to join the room if the server is asleep due to inactivity.
 
 ## Features and implementation overview
 
 1) **Entirely from scratch -**  Each and every functionality has been implemented from scratch without using any third-party whiteboard libraries.
 2) **Collaborative Mode -** Up to 5 users can join the room and interact with the shared whiteboard with features including free-hand drawing,
-   adding and formatting text, erasing, with all changes are broadcast to connected clients in real-time using web sockets.
+   adding and formatting text, erasing, with all changes being broadcast to connected clients in real-time using web sockets.
 3) **Custom Concurrency control system for board -** Inspired by database locking mechanisms, I developed my custom concurrency control system for
    the shared whiteboard so that there are no data conflicts, and no user is out of sync.
 4) **Collaborative Transparency -** The board lock mechanism provides temporary, exclusive access to one user at a time. Additionally, there are properly developed indicators
@@ -21,16 +21,19 @@ Note - The backend is deployed on Render free-tier, so it might take a few secon
    disabling a user (after which the disabled user can also request the admin to enable them, the admin gets a dialog where he decides either to accept or reject that request).
 
 
+## Tech Stack
+
+**Frontend:** JavaScript, React, Canvas API
+**Backend:** Node.js, Express.js, Web Sockets 
+
+## Significant Challenges
+
+1) Building custom state management to support multiple pages and a robust undo-redo functionality independently across all pages.
    
+2) Scaling and normalizing the coordinates before sending, as different connected users might have different canvas widths and heights. Additionally, implementing the erase functions
+   became difficult due to this fact.
    
+3) Implementing a custom concurrency control system for the board was the most difficult task. The design was inspired by locking mechanisms in modern databases.
+   Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were features that I worked on for the first time.
 
 
-
-
-
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
