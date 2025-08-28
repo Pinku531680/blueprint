@@ -21,6 +21,8 @@ function Main() {
   // for collaboration mode
   const ws = useRef(null);
   const url = "localhost:9000";
+  const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const wsURL = process.env.WS_URL = process.env.REACT_APP_WS_URL || "ws://localhost:8000";
 
   const [createLoading, setCreateLoading] = useState(false);
   const [joinLoading, setJoinLoading] = useState(false);
@@ -1519,7 +1521,7 @@ function Main() {
 
   const openConnection = () => {
 
-    ws.current = new WebSocket(`ws://${url}`);
+    ws.current = new WebSocket(wsURL);
 
     ws.current.onopen = () => {
       console.log("WebSocket Connection Opened!");
@@ -2409,7 +2411,7 @@ function Main() {
     // this reduces the room creation time by a few seconds if the server was asleep
     const wakeUpRequest = async () => {
       try {
-        const res = await fetch(`http://${url}/wake-up`);
+        const res = await fetch(`${backendURL}/wake-up`);
         const message = await res.json();
         console.log(message);
       }
