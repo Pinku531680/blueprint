@@ -682,7 +682,7 @@ function Main() {
 
     const linesToBeDrawn = Math.floor(canvasHeight / h);
 
-    console.log("Lines: ", linesToBeDrawn);
+    //console.log("Lines: ", linesToBeDrawn);
 
     for(let k = 1; k <= linesToBeDrawn; k++) {
 
@@ -701,7 +701,6 @@ function Main() {
     contextRef.current.strokeStyle = ruleColor;
     
     contextRef.current.stroke();
-
   }
 
   // function to display the current text being added on the canvas
@@ -967,6 +966,7 @@ function Main() {
       }
       else {
         // in single user mode, we manage states
+        console.log("Update State in single user mode");
         updateState(currentPage);
       }
 
