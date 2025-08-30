@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Blueprint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A multi-user real-time online collaboration whiteboard
 
-## Available Scripts
+## Live Demo -
+https://pinku531680.github.io/blueprint/
 
-In the project directory, you can run:
+Note - The backend is deployed on **Render** free-tier, so it might take a few seconds to create the room if the server is asleep due to inactivity.
 
-### `npm start`
+## Features and implementation overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1) **Entirely from scratch -**  Each and every functionality has been implemented from scratch without using any third-party whiteboard libraries.
+2) **Collaborative Mode -** Up to 5 users can join the room and interact with the shared whiteboard with features including free-hand drawing,
+   adding and formatting text, erasing, with all changes being broadcast to connected clients in real-time using web sockets.
+3) **Custom Concurrency control system for board -** Inspired by database locking mechanisms, I developed my custom concurrency control system for
+   the shared whiteboard so that there are no data conflicts, and no user is out of sync.
+4) **Collaborative Transparency -** The board lock mechanism provides temporary, exclusive access to one user at a time. Additionally, there are properly developed indicators
+   showing which user has the lock/control and for what purpose.
+5) **Custom State Management -** Implemented custom state management that allows multiple-page support and a robust undo-redo functionality independently across all pages.
+6) **Role-based Administrative Controls -** This feature allows role-based administrative controls for session moderation, like removing users, clearing shared canvas, and
+   disabling a user (after which the disabled user can also request the admin to enable them, the admin gets a dialog where he decides either to accept or reject that request).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Frontend:** JavaScript, React, Canvas API
 
-### `npm run build`
+**Backend:** Node.js, Express.js, Web Sockets 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Significant Challenges
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1) Building custom state management to support multiple pages and a robust undo-redo functionality independently across all pages.
+   
+2) Scaling and normalizing the coordinates before sending, as different connected users might have different canvas widths and heights. Additionally, implementing the erase functions
+   became difficult due to this fact.
+   
+3) Implementing a custom concurrency control system for the board was the most difficult task. The design was inspired by locking mechanisms in modern databases.
+   Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were features that I worked on for the first time.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (WebSocket API by Google Chrome and ws package in Node JS). 
+As a result, the programmer needs to care only about minimizing the data to be broadcast, which is not a significant challenge. Understanding web sockets to some depth is always a plus point when dealing with real-time applications.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+These videos from YouTube, apart from the official documentation, helped me understand a lot -
+1) https://youtu.be/2Nt-ZrNP22A?si=jrWr-59aOwFyAdAZ by **Hussein Nasser**
+2) https://youtu.be/NvZEZ-mZsuI?si=kYiBT62MBREobMmz by **ByteMonk**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
