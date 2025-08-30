@@ -964,7 +964,7 @@ function Main() {
       }
       else {
         // in single user mode, we manage states
-        console.log("Update State in single user mode");
+        //console.log("Update State in single user mode");
         updateState(currentPage);
       }
 
