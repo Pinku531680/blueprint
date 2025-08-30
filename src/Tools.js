@@ -55,7 +55,7 @@ function Tools({selectedTool, canUndo, canRedo, handleUndo, handleRedo,
             <li id="undo" 
             className={currentUserData.isDisabled ? "tool disabled" :
               canUndo() === false ? "tool disabled" : "tool"}
-              onClick={handleUndo}>
+              onClick={handleUndo} >
               {/* <i className="fa-solid fa-rotate-left"></i> */}
               <span className='material-symbols-outlined'>
                 undo
@@ -64,7 +64,7 @@ function Tools({selectedTool, canUndo, canRedo, handleUndo, handleRedo,
             <li id="redo" 
             className={currentUserData.isDisabled ? "tool disabled" :
               canRedo() === false ? "tool disabled" : "tool"}
-              onClick={handleRedo}>
+              onClick={handleRedo} >
               {/* <i className="fa-solid fa-rotate-right"></i> */}
               <span className='material-symbols-outlined'>
                 redo

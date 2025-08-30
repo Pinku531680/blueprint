@@ -20,7 +20,7 @@ function Main() {
 
   // for collaboration mode
   const ws = useRef(null);
-  const url = "localhost:9000";
+  
   const backendURL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
   const wsURL = process.env.WS_URL = process.env.REACT_APP_WS_URL || "ws://localhost:8000";
 
@@ -291,7 +291,7 @@ function Main() {
 
     // if in collaboration mode, we don't manage states
     if(pageViewRef.current === "room") {
-      console.log("%cIn room, so don't update state", "color: orange");
+      //console.log("%cIn room, so don't update state", "color: orange");
       return;
     }
 
@@ -860,8 +860,18 @@ function Main() {
     const scaleX = canvasRef.current.width / rect.width;
     const scaleY = canvasRef.current.height / rect.height;
 
-    let x = Math.round((e.clientX - rect.left) * scaleX);
-    let y = Math.round((e.clientY - rect.top) * scaleY);
+    // if display is touch screen, we rely on e.touches object
+    let x;
+    let y;
+
+    if(e.touches) {
+      x = Math.round((e.touches[0].clientX - rect.left) * scaleX);
+      y = Math.round((e.touches[0].clientY - rect.top) * scaleY);
+    }
+    else {
+      x = Math.round((e.clientX - rect.left) * scaleX);
+      y = Math.round((e.clientY - rect.top) * scaleY);
+    }
 
     let point = new Point(x, y);
 
@@ -998,11 +1008,20 @@ function Main() {
     const scaleX = canvasRef.current.width / rect.width;
     const scaleY = canvasRef.current.height / rect.height;
 
-    let x = Math.round((e.clientX - rect.left) * scaleX);
-    let y = Math.round((e.clientY - rect.top) * scaleY);
+    // if application is being used on touch screen display, we have e.touches object
+    let x;
+    let y;
+
+    if(e.touches) {
+      x = Math.round((e.touches[0].clientX - rect.left) * scaleX);
+      y = Math.round((e.touches[0].clientY - rect.top) * scaleY);
+    }
+    else {
+      x = Math.round((e.clientX - rect.left) * scaleX);
+      y = Math.round((e.clientY - rect.top) * scaleY);
+    }
 
     let point = new Point(x, y);
-
 
     // Creating a deep copy of 'pages'
     // this method is more expensive for large arrays
@@ -1103,13 +1122,27 @@ function Main() {
       }
     }
 
-    let rect = canvasRef.current.getBoundingClientRect();
+    let rect = canvasRef.current.getBoundingClientRect(); 
 
     const scaleX = canvasRef.current.width / rect.width;
     const scaleY = canvasRef.current.height / rect.height;
 
-    let x = Math.round((e.clientX - rect.left) * scaleX);
-    let y = Math.round((e.clientY - rect.top) * scaleY);
+    // for touch screen displays like tablets, we need to focus on e.touches object
+    // e.clientX does not work
+    let x;
+    let y;
+
+    if(e.touches) {
+      //console.log("Touch Screen Display!");
+      x = Math.round((e.touches[0].clientX - rect.left) * scaleX);
+      y = Math.round((e.touches[0].clientY - rect.top) * scaleY);
+    }
+    else {
+      //console.log("Mouse Display");
+      // for displays with mouse
+      x = Math.round((e.clientX - rect.left) * scaleX);
+      y = Math.round((e.clientY - rect.top) * scaleY);
+    }
 
 
     switch(selectedTool) {
@@ -1348,7 +1381,7 @@ function Main() {
 
     if(pageIndex >= pages.length - 1) return;
 
-    console.log("Next Slide");
+    //console.log("Next Slide");
 
     if(pageViewRef.current === "room") {
       // no user can change the slide if the board is in focus
@@ -1376,7 +1409,7 @@ function Main() {
 
     if(pageIndex <= 0) return;
 
-    console.log("Prev Slide");
+    //console.log("Prev Slide");
     
     if(pageViewRef.current === "room") {
       // no user can change the slide if the board is in focus
@@ -1832,9 +1865,6 @@ function Main() {
     // update currentUserData
     const currentUserObj = payload.users.find((user) => user._userName === userName);
 
-    console.log("currentUserObj");
-    console.log(currentUserObj);
-
     setCurrentUserData((prev) => ({
       ...prev, 
       ws: currentUserObj._ws, userName: currentUserObj._userName, 
@@ -2056,7 +2086,6 @@ function Main() {
     // console.log("BOARD STATE UPDATE");
     // console.log(payload.page);
     // console.log("-".repeat(20));
-    console.log("BOARD STATE UPDATE");
 
     // just the current page state was sent, not the entire pages state
     // convert all path objects to proper Path class instances
@@ -2172,13 +2201,15 @@ function Main() {
     }, 500)
   }
 
+  // incoming page increment action
   const pageIncrement = (payload) => {
 
     // increment pageIndex to payload.pageIndex
     setPageIndex(payload.pageIndex);
-    console.log("PAGE INCREMENTED TO : ", payload.pageIndex);
+    //console.log("PAGE INCREMENTED TO : ", payload.pageIndex);
   }
 
+  // incoming page decrement action
   const pageDecrement = (payload) => {
 
     // same as increment
@@ -2413,7 +2444,7 @@ function Main() {
       try {
         const res = await fetch(`${backendURL}/wake-up`);
         const message = await res.json();
-        console.log(message);
+        //console.log(message);
       }
       catch(err) {
         console.log("Error sending wake up request");
@@ -2437,6 +2468,8 @@ function Main() {
   // Update paths whenver pages, pageIndex  is modified
   useEffect(() => {
 
+    // console.log("UPDATED PAGES");
+    // console.log(pages);
     if(pages.length === 0) {
       setPaths([]);
 
@@ -2465,8 +2498,8 @@ function Main() {
   useEffect(() => {
 
     if(currentUserData.isAdmin) {
-      console.log("CURRENT USER DATA");
-      console.log(currentUserData);
+      // console.log("CURRENT USER DATA");
+      // console.log(currentUserData);
       userIsAdmin.current = true;
     }
 

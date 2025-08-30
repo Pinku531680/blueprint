@@ -10,8 +10,18 @@ export function eraseSingleUser(e, paths, pageIndex, pages, setPages, removingPa
     const scaleX = canvasRef.current.width / rect.width;
     const scaleY = canvasRef.current.height / rect.height;
 
-    let x = Math.round((e.clientX - rect.left) * scaleX);
-    let y = Math.round((e.clientY - rect.top) * scaleY);
+    // if display is touch screen, we have e.touches object
+    let x;
+    let y;
+
+    if(e.touches) {
+      x = Math.round((e.touches[0].clientX - rect.left) * scaleX);
+      y = Math.round((e.touches[0].clientY - rect.top) * scaleY);
+    }
+    else {
+      x = Math.round((e.clientX - rect.left) * scaleX);
+      y = Math.round((e.clientY - rect.top) * scaleY);
+    }
 
     // Corner points of Eraser SVG
     let corners = [[x-1,y-8], [x-1+20,y-8], [x-1,y+2], [x-1+20,y+2]]
@@ -77,7 +87,7 @@ export function eraseSingleUser(e, paths, pageIndex, pages, setPages, removingPa
 
           if(xInRange && yInRange) {
 
-            console.log(`Text with index ${x} in range`);
+            //console.log(`Text with index ${x} in range`);
         
             pathToBeRemovedIndex = x;
 
@@ -98,7 +108,7 @@ export function eraseSingleUser(e, paths, pageIndex, pages, setPages, removingPa
           // If point is in range remove that that
           if(xInRange && yInRange) {
 
-            console.log(`Path with index ${x} in range`);
+            // console.log(`Path with index ${x} in range`);
           
             pathToBeRemovedIndex = x
             targetPoint = [point.getX(), point.getY()]
@@ -108,7 +118,7 @@ export function eraseSingleUser(e, paths, pageIndex, pages, setPages, removingPa
         }
       }
       else {
-        console.log("ELSE...");
+        //console.log("ELSE...");
       }
     }
 
@@ -134,8 +144,8 @@ export function eraseSingleUser(e, paths, pageIndex, pages, setPages, removingPa
         return page;
       })
 
-      console.log("NEW PATHS");
-      console.log(newPaths);
+      // console.log("NEW PATHS");
+      // console.log(newPaths);
 
       setPages(newPages);
 
@@ -159,8 +169,18 @@ export function eraseMultiUser(contextRef, e, paths, pageIndex, pages, setPages,
     const scaleX = canvasRef.current.width / rect.width;
     const scaleY = canvasRef.current.height / rect.height;
 
-    let x = Math.round((e.clientX - rect.left) * scaleX);
-    let y = Math.round((e.clientY - rect.top) * scaleY);
+    // if display is touch screen, we have e.touches object
+    let x;
+    let y;
+
+    if(e.touches) {
+      x = Math.round((e.touches[0].clientX - rect.left) * scaleX);
+      y = Math.round((e.touches[0].clientY - rect.top) * scaleY);
+    }
+    else {
+      x = Math.round((e.clientX - rect.left) * scaleX);
+      y = Math.round((e.clientY - rect.top) * scaleY);
+    }
 
     // Corner points of Eraser SVG
     let corners = [[x-1,y-8], [x-1+20,y-8], [x-1,y+2], [x-1+20,y+2]];
@@ -224,7 +244,7 @@ export function eraseMultiUser(contextRef, e, paths, pageIndex, pages, setPages,
 
                 if(xInRange && yInRange) {
 
-                    console.log(`(Collab) Text with index ${x} in range`);
+                    // console.log(`(Collab) Text with index ${x} in range`);
 
                     pathToBeRemovedIndex = x;
                     setRemovingPath(true);
@@ -251,7 +271,7 @@ export function eraseMultiUser(contextRef, e, paths, pageIndex, pages, setPages,
                 // If point is in range remove that that
                 if(xInRange && yInRange) {
 
-                    console.log(`(Collab) Path with index ${x} in range`);
+                    // console.log(`(Collab) Path with index ${x} in range`);
                 
                     pathToBeRemovedIndex = x;
                     setRemovingPath(true)
@@ -284,8 +304,8 @@ export function eraseMultiUser(contextRef, e, paths, pageIndex, pages, setPages,
             return page;
         })
 
-        console.log("NEW PATHS AFTER ERASE - ");
-        console.log(newPaths);
+        // console.log("NEW PATHS AFTER ERASE - ");
+        // console.log(newPaths);
 
         setPages(newPages);
 
