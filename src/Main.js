@@ -127,8 +127,6 @@ function Main() {
   // Array of Path class instances
   const [paths, setPaths] = useState([]);
 
-  //const [paths, setPaths] = useState(new Paths([]));
-
   // This variable stores various states of the page
   // Will be used for undo and redo functionality
   const [states, setStates] = useState([ ])
@@ -681,7 +679,7 @@ function Main() {
     contextRef.current.globalAlpha = 1;
 
     const linesToBeDrawn = Math.floor(canvasHeight / h);
-
+    
     //console.log("Lines: ", linesToBeDrawn);
 
     for(let k = 1; k <= linesToBeDrawn; k++) {
@@ -2003,8 +2001,6 @@ function Main() {
       ...prev,
       users: payload.users
     }));
-
-    console.log("UPDATED USERS EVENT");
   }
 
   const requestLock = (userName, mode, roomId) => {
