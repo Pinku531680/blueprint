@@ -1355,12 +1355,12 @@ function Main() {
 
     // if not in room, move to the next page
     // but not if in room
-    if(pageView !== "room") {
+    if(pageViewRef.current !== "room") {
       setPageIndex((prevState) => prevState + 1);
     }
 
     // if in the room, broadcast event about adding page to all
-    if(pageView === "room") {
+    if(pageViewRef.current === "room") {
 
       const data = {
         action: "ADD_NEW_PAGE",
