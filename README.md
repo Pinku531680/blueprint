@@ -9,7 +9,7 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
 
 ## Features and implementation overview
 
-1) **Entirely from scratch -**  Each and every functionality has been implemented from scratch without using any third-party whiteboard libraries.
+1) **Entirely from scratch -**  Every functionality has been implemented from scratch without using any third-party whiteboard libraries.
 2) **Collaborative Mode -** Up to 5 users can join the room and interact with the shared whiteboard with features including free-hand drawing,
    adding and formatting text, erasing, with all changes being broadcast to connected clients in real-time using web sockets.
 3) **Custom Concurrency control system for board -** Inspired by database locking mechanisms, I developed my custom concurrency control system for
@@ -38,13 +38,17 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
    Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were features that I worked on for the first time.
 
 
-The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (WebSocket API by Google Chrome and ws package in Node JS). 
+The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (the WebSocket API by Google Chrome and the ws package in Node.js). 
 As a result, the programmer needs to care only about minimizing the data to be broadcast, which is not a significant challenge. Understanding web sockets to some depth is always a plus point when dealing with real-time applications.
 
 These videos from YouTube, apart from the official documentation, helped me understand a lot -
 1) https://youtu.be/2Nt-ZrNP22A?si=jrWr-59aOwFyAdAZ by **Hussein Nasser**
 2) https://youtu.be/NvZEZ-mZsuI?si=kYiBT62MBREobMmz by **ByteMonk**
 
+## Future Plans for the Project ##
 
+1)  Develop a freely drawn shape detection feature for circles, rectangles, and triangles using feature extraction techniques and a neural network, like CNN.
+2) Add a straight line detection feature.
+3) Add functionality to insert commonly used mathematical symbols that are not present on the keyboard.
 
 
