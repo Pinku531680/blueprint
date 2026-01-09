@@ -34,8 +34,8 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
 2) Scaling and normalizing the coordinates before sending, as different connected users might have different canvas widths and heights. Additionally, implementing the erase functions
    became difficult due to this fact.
    
-3) Implementing a custom concurrency control system for the board was the most difficult task. The design was inspired by locking mechanisms in modern databases.
-   Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were features that I worked on for the first time.
+3) Implementing a custom concurrency control system for the board was the most difficult task. The design was inspired by locking mechanisms in modern databases and mutual exclusions.
+   Managing the board lock, deciding which user can have control, and releasing the focus/lock at the right time were functionalities that I worked on for the first time.
 
 
 The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (the WebSocket API by Google Chrome and the ws package in Node.js). 
