@@ -39,7 +39,9 @@ Note - The backend is deployed on **Render** free-tier, so it might take a few s
 
 
 The web socket communication and broadcasting are so efficient because of wonderful and efficient native implementations (the WebSocket API by Google Chrome and the ws package in Node.js). 
-As a result, the programmer needs to care only about minimizing the data to be broadcast, which is not a significant challenge. Understanding web sockets to some depth is always a plus point when dealing with real-time applications.
+As a result, the programmer needs to care only about minimizing the data to be broadcast, which is not an impossible challenge. Understanding web sockets to some depth is always a plus point when dealing with real-time applications. 
+
+Similarly, for implementing a custom concurrency control system for the whiteboard, having a good understanding of how the OS really handles and prevents issues in concurrency is crucial, along with understanding how modern databases handle problems that were critical decades ago, because if concurrency control and locking mechanisms are not implemented the right way, the application can break in many cases leading to data inconsistencies.
 
 These videos from YouTube, apart from the official documentation, helped me understand a lot -
 1) https://youtu.be/2Nt-ZrNP22A?si=jrWr-59aOwFyAdAZ by **Hussein Nasser**
