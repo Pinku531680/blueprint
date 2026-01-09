@@ -47,8 +47,8 @@ These videos from YouTube, apart from the official documentation, helped me unde
 
 ## Future Plans for the Project ##
 
-1)  Develop a freely drawn shape detection feature for circles, rectangles, and triangles using feature extraction techniques and a neural network, like CNN.
-2) Add a straight line detection feature.
+1) Develop a freely drawn shape detection feature for circles, rectangles, and triangles using feature extraction techniques and KNN or a neural network, like CNN.
+2) Optimizing erase functions to work efficiently even when a lot of paths have been drawn on the page.
 3) Add functionality to insert commonly used mathematical symbols that are not present on the keyboard.
 
 
