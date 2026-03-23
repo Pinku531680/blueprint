@@ -47,7 +47,7 @@ These videos from YouTube, apart from the official documentation, helped me unde
 1) https://youtu.be/2Nt-ZrNP22A?si=jrWr-59aOwFyAdAZ by **Hussein Nasser**
 2) https://youtu.be/NvZEZ-mZsuI?si=kYiBT62MBREobMmz by **ByteMonk**
 
-Some online content on locking mechanisms, concurrency that I found very useful(other than textbooks) - 
+Some online content on locking mechanisms, concurrency that I found very useful(other than Database System Concepts 7th Edition) - 
 1) https://web.mit.edu/6.031/www/fa21/classes/23-mutual-exclusion/
 2) https://www.isical.ac.in/~malaybhattacharyya/Courses/DBMS/Spring2024/Class%20VIII.pdf
 3) https://www.cs.utexas.edu/~witchel/372/lectures/06.Locking.pdf
