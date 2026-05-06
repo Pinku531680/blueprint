@@ -1,6 +1,6 @@
 # Blueprint
 
-A multi-user real-time online collaboration whiteboard
+A multi-user real-time collaboration whiteboard
 
 ## Live Demo -
 https://pinku531680.github.io/blueprint/
