@@ -2,6 +2,11 @@
 
 A multi-user real-time collaboration whiteboard implemented entirely from scratch.
 
+## Architecture Diagram
+<p align="center">
+  <img src="https://github.com/Pinku531680/my-images/blob/main/BLUEPRINT-Architecture-Diagram-2575x1761.png)" alt="BluePrint Architecture Diagram" width="100%">
+</p>
+
 ## Live Demo -
 https://pinku531680.github.io/blueprint/
 
